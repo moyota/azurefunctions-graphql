@@ -45,4 +45,4 @@ __pycache__/
 .vscode
 
 # CosmosDB Secret File
-#config.py
+MyFunctionProj/cosmosdb/config.py
