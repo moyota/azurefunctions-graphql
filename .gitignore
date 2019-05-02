@@ -20,7 +20,7 @@ project.lock.json
 /data
 .secrets
 appsettings.json
-local.settings.json
+#local.settings.json
 
 node_modules
 
@@ -45,4 +45,4 @@ __pycache__/
 .vscode
 
 # CosmosDB Secret File
-MyFunctionProj/cosmosdb/config.py
+#MyFunctionProj/cosmosdb/config.py
