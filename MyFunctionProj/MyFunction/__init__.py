@@ -1,5 +1,5 @@
 import azure.functions as func
-from ..graphql.graphql import GraphQL, Query
+from ..graphqllib.graphql import GraphQL, Query
 from logging import getLogger
 logger = getLogger(__name__)
 
