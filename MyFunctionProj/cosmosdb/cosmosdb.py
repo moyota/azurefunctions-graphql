@@ -35,9 +35,8 @@ class DatabaseConnection():
             # database_link = db['_self']
         except errors.HTTPFailure as e:
             if e.status_code == 409:
-               print('A database with id \'{0}\' already exists'.format(self.database_link))
-            else:
-                raise errors.HTTPFailure(e.status_code)
+                print('A database with id \'{0}\' already exists'.format(self.database_link))
+            raise errors.HTTPFailure(e.status_code)
         except Exception as e:
             raise e
 
@@ -75,8 +74,7 @@ class DatabaseConnection():
         except errors.CosmosError as e:
             if e.status_code == 409:
                 logger.error('A collection with id \'{0}\' already exists'.format(self.container_link))
-            else:
-                raise errors.HTTPFailure(e.status_code) 
+            raise errors.HTTPFailure(e.status_code)
         except Exception as e:
             raise e
 
@@ -96,8 +94,7 @@ class DatabaseConnection():
                 print('A collection with id \'{0}\' does not exist'.format(self.container_link))
             elif e.status_code == 409:
                 logger.error('A Item with id \'{0}\' already exists'.format(item['id']))            
-            else: 
-                raise errors.HTTPFailure(e.status_code)
+            raise errors.HTTPFailure(e.status_code)
         except Exception as e:
             raise e
 
@@ -117,8 +114,7 @@ class DatabaseConnection():
         except errors.HTTPFailure as e:
             if e.status_code == 404:
                 print('A collection with id \'{0}\' does not exist'.format(self.container_link))
-            else:
-                raise errors.HTTPFailure(e.status_code)
+            raise errors.HTTPFailure(e.status_code)
         except Exception as e:
             raise e
 
@@ -132,8 +128,7 @@ class DatabaseConnection():
         except errors.HTTPFailure as e:
             if e.status_code == 404:
                 print('A collection with id \'{0}\' does not exist'.format(self.container_link))
-            else:
-                raise errors.HTTPFailure(e.status_code)
+            raise errors.HTTPFailure(e.status_code)
         except Exception as e:
             raise e
 
@@ -147,8 +142,7 @@ class DatabaseConnection():
         except errors.HTTPFailure as e:
             if e.status_code == 404:
                 print('A collection with id \'{0}\' does not exist'.format(self.container_link))
-            else:
-                raise errors.HTTPFailure(e.status_code)
+            raise errors.HTTPFailure(e.status_code)
         except Exception as e:
             raise e
 
@@ -165,8 +159,7 @@ class DatabaseConnection():
         except errors.HTTPFailure as e:
             if e.status_code == 404:
                 print('A collection with id \'{0}\' does not exist'.format(self.container_link))
-            else:
-                raise errors.HTTPFailure(e.status_code)
+            raise errors.HTTPFailure(e.status_code)
         except Exception as e:
             raise e
 
