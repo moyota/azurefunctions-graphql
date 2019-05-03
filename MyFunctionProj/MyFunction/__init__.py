@@ -45,13 +45,15 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     try:
         results = GraphQL().query(query)
-        logger.info(results.data)
     except Exception as e:
         logger.error(e)
-        pass
+        return func.HttpResponse(
+             "Internal Server Error",
+             status_code=500
+        )
 
     if results:
-        return func.HttpResponse(f"{results.data}")
+        return func.HttpResponse(f"{results}")
     else:
         return func.HttpResponse(
              "Please pass a name on the query string or in the request body",

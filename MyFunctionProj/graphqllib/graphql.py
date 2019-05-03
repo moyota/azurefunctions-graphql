@@ -1,6 +1,9 @@
 import graphene
+import json
 from datetime import datetime, timezone
 from ..cosmosdb.cosmosdb import DatabaseConnection, getItem, getReplacedItem
+from logging import getLogger
+logger = getLogger(__name__)
 
 # type DBItem
 class DbItem(graphene.ObjectType):
@@ -72,7 +75,7 @@ class GraphQL:
 
     def query(self, query):
         results = self.schema.execute(query)
-        return results
+        return json.dumps(results.data)
 
     def queryWithContext(self, query, context):
         results = self.schema.execute(query, context=context)
