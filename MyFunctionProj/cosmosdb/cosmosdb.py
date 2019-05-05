@@ -104,8 +104,8 @@ class DatabaseConnection():
         query = {'query': 'SELECT * FROM c WHERE c.id = "{0}"'.format(item["id"])}
 
         try:
-            results = self.client.QueryItems(self.container_link, query, self.get_options())
-            for item in list(results):
+            results = list(self.client.QueryItems(self.container_link, query, self.get_options()))
+            for item in results:
                 logger.info(item)
                 options = self.get_options()
                 options['partitionKey'] = item['partitionKey']
